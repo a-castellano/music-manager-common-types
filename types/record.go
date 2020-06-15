@@ -20,6 +20,6 @@ type Record struct {
 	ID     int
 	Year   int
 	URL    string
-	Type   types.RecordType
+	Type   RecordType
 	Tracks []Track
 }

@@ -1,0 +1,93 @@
+image: daedalusproject/base_golang_1_13:202001111126
+
+stages:
+    - test
+
+unit_tests:
+  stage: test
+  before_script:
+    - export CC=/usr/bin/clang
+    - export GOPATH="$(pwd)/go"
+    - mkdir -p "$(pwd)/go"
+    - go env -w GOPATH="$(pwd)/go"
+    - mkdir -p $GOPATH/src/github.com/a-castellano
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+  script:
+    - echo $GOPATH
+    - pwd
+    - make test
+
+race_detector:
+  stage: test
+  before_script:
+    - export CC=/usr/bin/clang
+    - export GOPATH="$(pwd)/go"
+    - mkdir -p "$(pwd)/go"
+    - go env -w GOPATH="$(pwd)/go"
+    - mkdir -p $GOPATH/src/github.com/a-castellano
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+  script:
+    - make race
+
+memory_sanitizer:
+  stage: test
+  before_script:
+    - export CC=/usr/bin/clang
+    - export GOPATH="$(pwd)/go"
+    - mkdir -p "$(pwd)/go"
+    - go env -w GOPATH="$(pwd)/go"
+    - mkdir -p $GOPATH/src/github.com/a-castellano
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+  script:
+    - make msan
+
+code_coverage:
+  stage: test
+  before_script:
+    - export CC=/usr/bin/clang
+    - export GOPATH="$(pwd)/go"
+    - mkdir -p "$(pwd)/go"
+    - go env -w GOPATH="$(pwd)/go"
+    - mkdir -p $GOPATH/src/github.com/a-castellano
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+  script:
+    - make coverage
+  artifacts:
+    name: "coverage-$CI_PIPELINE_ID"
+    paths:
+      - coverage.html
+      - cover
+    expire_in: 1 hour
+  coverage: /total:\s+.+\s(\d+\.\d+?)%$/
+
+code_coverage_report:
+  stage: test
+  before_script:
+    - export CC=/usr/bin/clang
+    - export GOPATH="$(pwd)/go"
+    - mkdir -p "$(pwd)/go"
+    - go env -w GOPATH="$(pwd)/go"
+    - mkdir -p $GOPATH/src/github.com/a-castellano
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+  script:
+    - make coverhtml
+  only:
+  - master
+
+lint_code:
+  stage: test
+  before_script:
+    - export CC=/usr/bin/clang
+    - export GOPATH="$(pwd)/go"
+    - mkdir -p "$(pwd)/go"
+    - go env -w GOPATH="$(pwd)/go"
+    - mkdir -p $GOPATH/src/github.com/a-castellano
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+  script:
+    - make lint
