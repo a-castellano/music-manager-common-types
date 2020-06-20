@@ -2,6 +2,7 @@ image: daedalusproject/base_golang_1_13:202001111126
 
 stages:
     - test
+    - deploy
 
 unit_tests:
   stage: test
@@ -91,3 +92,12 @@ lint_code:
     - cd $GOPATH/src/github.com/a-castellano/music-manager-common-types
   script:
     - make lint
+
+pages:
+  stage: deploy
+  image: daedalusproject/base:202001111126
+  script:
+  - cp coverage.html public/
+  artifacts:
+    paths:
+    - public
