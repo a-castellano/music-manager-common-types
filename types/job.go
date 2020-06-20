@@ -29,7 +29,6 @@ func EncodeJob(job Job) ([]byte, error) {
 	enc := gob.NewEncoder(&network)
 	err := enc.Encode(job)
 	if err != nil {
-		log.Fatal("Encode error:", err)
 		return encodedJob, err
 	}
 	encodedJob = network.Bytes()
