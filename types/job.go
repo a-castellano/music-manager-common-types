@@ -12,12 +12,14 @@ const (
 	ArtistInfoRetrieval JobType = 1 << iota
 	RecordInfoRetrieval
 	JobInfoRetrieval
+	Die
 )
 
 type Job struct {
 	ID       int
 	Finished bool
 	Status   bool
+	Type     JobType
 	Data     []byte
 }
 
