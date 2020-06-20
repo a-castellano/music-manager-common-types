@@ -42,7 +42,6 @@ func DecodeJob(encoded []byte) (Job, error) {
 	dec := gob.NewDecoder(network)
 	err := dec.Decode(&job)
 	if err != nil {
-		log.Fatal("Decode error:", err)
 		return job, err
 	}
 	return job, nil
