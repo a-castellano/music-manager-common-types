@@ -11,8 +11,8 @@ unit_tests:
     - mkdir -p "$(pwd)/go"
     - go env -w GOPATH="$(pwd)/go"
     - mkdir -p $GOPATH/src/github.com/a-castellano
-    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
-    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/music-manager-common-types
+    - cd $GOPATH/src/github.com/a-castellano/music-manager-common-types
   script:
     - echo $GOPATH
     - pwd
@@ -26,8 +26,8 @@ race_detector:
     - mkdir -p "$(pwd)/go"
     - go env -w GOPATH="$(pwd)/go"
     - mkdir -p $GOPATH/src/github.com/a-castellano
-    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
-    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/music-manager-common-types
+    - cd $GOPATH/src/github.com/a-castellano/music-manager-common-types
   script:
     - make race
 
@@ -39,8 +39,8 @@ memory_sanitizer:
     - mkdir -p "$(pwd)/go"
     - go env -w GOPATH="$(pwd)/go"
     - mkdir -p $GOPATH/src/github.com/a-castellano
-    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
-    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/music-manager-common-types
+    - cd $GOPATH/src/github.com/a-castellano/music-manager-common-types
   script:
     - make msan
 
@@ -52,8 +52,8 @@ code_coverage:
     - mkdir -p "$(pwd)/go"
     - go env -w GOPATH="$(pwd)/go"
     - mkdir -p $GOPATH/src/github.com/a-castellano
-    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
-    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/music-manager-common-types
+    - cd $GOPATH/src/github.com/a-castellano/music-manager-common-types
   script:
     - make coverage
   artifacts:
@@ -72,8 +72,8 @@ code_coverage_report:
     - mkdir -p "$(pwd)/go"
     - go env -w GOPATH="$(pwd)/go"
     - mkdir -p $GOPATH/src/github.com/a-castellano
-    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
-    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/music-manager-common-types
+    - cd $GOPATH/src/github.com/a-castellano/music-manager-common-types
   script:
     - make coverhtml
   only:
@@ -87,7 +87,7 @@ lint_code:
     - mkdir -p "$(pwd)/go"
     - go env -w GOPATH="$(pwd)/go"
     - mkdir -p $GOPATH/src/github.com/a-castellano
-    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
-    - cd $GOPATH/src/github.com/a-castellano/metal-archives-wrapper
+    - ln -s ${CI_PROJECT_DIR} $GOPATH/src/github.com/a-castellano/music-manager-common-types
+    - cd $GOPATH/src/github.com/a-castellano/music-manager-common-types
   script:
     - make lint
