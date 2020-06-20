@@ -21,3 +21,12 @@ func TestEncodeAndDecode(t *testing.T) {
 	}
 
 }
+
+func TestDecodeEmptyData(t *testing.T) {
+
+	var emptyData []byte
+	_, err := DecodeJob(emptyData)
+	if err == nil {
+		t.Error("Empty data decoding should fail.")
+	}
+}
