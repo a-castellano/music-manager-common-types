@@ -14,10 +14,10 @@ test: ## Run unittests
 	@go test -short ./...
 
 race: ## Run data race detector
-	@go test -race -short ${PKG_LIST}
+	@go test -race -short ./...
 
 msan: ## Run memory sanitizer
-	@go test -msan -short ${PKG_LIST}
+	@go test -msan -short ./...
 
 coverage: ## Generate global code coverage report
 	./scripts/coverage.sh;
