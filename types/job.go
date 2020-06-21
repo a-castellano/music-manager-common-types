@@ -3,7 +3,6 @@ package types
 import (
 	"bytes"
 	"encoding/gob"
-	"log"
 )
 
 type JobType int

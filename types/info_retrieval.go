@@ -3,7 +3,6 @@ package types
 import (
 	"bytes"
 	"encoding/gob"
-	"log"
 )
 
 type InfoRetrievalType int
@@ -27,7 +26,7 @@ func EncodeInfoRetrieval(info InfoRetrieval) ([]byte, error) {
 	var encodedInfoRetrieval []byte
 	var network bytes.Buffer
 	enc := gob.NewEncoder(&network)
-	err := enc.Encode(job)
+	err := enc.Encode(info)
 	if err != nil {
 		return encodedInfoRetrieval, err
 	}
