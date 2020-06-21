@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestEncodeAndDecode(t *testing.T) {
+func TestEncodeAndDecodeJobs(t *testing.T) {
 
 	var job Job
 	job.ID = 12
@@ -22,7 +22,7 @@ func TestEncodeAndDecode(t *testing.T) {
 
 }
 
-func TestDecodeEmptyData(t *testing.T) {
+func TestDecodeEmptyDataJobs(t *testing.T) {
 
 	var emptyData []byte
 	_, err := DecodeJob(emptyData)
