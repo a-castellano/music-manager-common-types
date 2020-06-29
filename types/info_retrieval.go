@@ -17,7 +17,7 @@ const (
 
 type InfoRetrieval struct {
 	Type   InfoRetrievalType
-	URL    string
+	Data   []byte
 	Artist string
 	Album  string
 }
