@@ -9,10 +9,10 @@ type InfoRetrievalType int
 
 const (
 	ArtistName InfoRetrievalType = 1 << iota
-	ArtistURL
+	ArtistData
 	AlbumName
-	AlbumURL
-	AlbumWithArtist
+	AlbumData
+	AlbumWithArtistData
 )
 
 type InfoRetrieval struct {
