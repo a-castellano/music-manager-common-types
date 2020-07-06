@@ -8,7 +8,7 @@ func TestEncodeAndDecodeJobs(t *testing.T) {
 
 	var job Job
 	job.ID = 12
-	job.Type = RecordInfoRetrieval
+	job.Type = "RecordInfoRetrieval"
 	test, _ := EncodeJob(job)
 	result, _ := DecodeJob(test)
 
@@ -16,7 +16,7 @@ func TestEncodeAndDecodeJobs(t *testing.T) {
 		t.Errorf(`Encode failed.`)
 	}
 
-	if result.Type != RecordInfoRetrieval {
+	if result.Type != "RecordInfoRetrieval" {
 		t.Errorf(`Encode failed.`)
 	}
 
