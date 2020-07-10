@@ -5,11 +5,20 @@ import (
 	"encoding/gob"
 )
 
+type JobType int
+
+const (
+	ArtistInfoRetrieval JobType = 1 << iota
+	RecordInfoRetrieval
+	JobInfoRetrieval
+	Die
+)
+
 type Job struct {
 	ID       int
 	Finished bool
 	Status   bool
-	Type     string
+	Type     JobType
 	Data     []byte
 }
 
