@@ -40,7 +40,7 @@ func DecodeJob(encoded []byte) (Job, error) {
 	dec := gob.NewDecoder(network)
 	err := dec.Decode(&job)
 	if err != nil {
-		return job, err
+		return Job{}, err
 	}
 	return job, nil
 }
