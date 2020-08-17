@@ -5,10 +5,8 @@ import (
 	"encoding/gob"
 )
 
-type InfoRetrievalType int
-
 const (
-	ArtistName InfoRetrievalType = 1 << iota
+	ArtistName int = 1 << iota
 	ArtistData
 	AlbumName
 	AlbumData
@@ -16,7 +14,7 @@ const (
 )
 
 type InfoRetrieval struct {
-	Type   InfoRetrievalType
+	Type   int
 	Data   []byte
 	Artist string
 	Album  string
