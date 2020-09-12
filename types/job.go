@@ -21,6 +21,7 @@ type Job struct {
 	Type     JobType
 	Data     []byte
 	Result   []byte
+	Error    error
 }
 
 func EncodeJob(job Job) ([]byte, error) {
