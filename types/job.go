@@ -15,13 +15,14 @@ const (
 )
 
 type Job struct {
-	ID       int
-	Finished bool
-	Status   bool
-	Type     JobType
-	Data     []byte
-	Result   []byte
-	Error    string
+	ID         int
+	Finished   bool
+	Status     bool
+	Type       JobType
+	LastOrigin string
+	Data       []byte
+	Result     []byte
+	Error      error
 }
 
 func EncodeJob(job Job) ([]byte, error) {
