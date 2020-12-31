@@ -9,13 +9,13 @@ func TestEncodeAndDecodeArtists(t *testing.T) {
 	var artist Artist
 	artist.Name = "Bølzer"
 	artist.URL = "https://www.metal-archives.com/bands/B%C3%B8lzer/3540351548"
-	artist.ID = 3540351548
+	artist.ID = "3540351548"
 	artist.Genre = "Black Metal"
 	artist.Country = "Switzerland"
 	test, _ := EncodeArtist(artist)
 	result, _ := DecodeArtist(test)
 
-	if result.ID != 3540351548 {
+	if result.ID != "3540351548" {
 		t.Errorf(`Encode failed.`)
 	}
 
@@ -41,21 +41,21 @@ func TestEncodeAndDecodeMultipleArtists(t *testing.T) {
 	var firstArtist Artist
 	firstArtist.Name = "Bølzer"
 	firstArtist.URL = "https://www.metal-archives.com/bands/B%C3%B8lzer/3540351548"
-	firstArtist.ID = 3540351548
+	firstArtist.ID = "3540351548"
 	firstArtist.Genre = "Black Metal"
 	firstArtist.Country = "Switzerland"
 
 	var secondArtist Artist
 	secondArtist.Name = "Blasphemy"
 	secondArtist.URL = "https://www.metal-archives.com/bands/Blasphemy/1141"
-	secondArtist.ID = 1141
+	secondArtist.ID = "1141"
 	secondArtist.Genre = "Black/Death Metal"
 	secondArtist.Country = "Canada"
 
 	var thirdArtist Artist
 	thirdArtist.Name = "Vektor"
 	thirdArtist.URL = "https://www.metal-archives.com/bands/Vektor/87803"
-	thirdArtist.ID = 87803
+	thirdArtist.ID = "87803"
 	thirdArtist.Genre = "Progressive Thrash Metal"
 	thirdArtist.Country = "United States"
 
