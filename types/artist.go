@@ -8,7 +8,7 @@ import (
 type Artist struct {
 	Name    string
 	URL     string
-	ID      int
+	ID      string
 	Genre   string
 	Country string
 	Records []Record

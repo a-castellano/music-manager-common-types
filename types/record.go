@@ -17,7 +17,7 @@ const (
 
 type Record struct {
 	Name   string
-	ID     int
+	ID     string
 	Year   int
 	URL    string
 	Type   RecordType
