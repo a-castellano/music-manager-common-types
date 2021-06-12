@@ -3,6 +3,7 @@ package types
 import (
 	"bytes"
 	"encoding/gob"
+	uuid "github.com/google/uuid"
 )
 
 type JobType int
@@ -15,7 +16,7 @@ const (
 )
 
 type Job struct {
-	ID             int
+	ID             uuid.UUID
 	Finished       bool
 	Status         bool
 	Type           JobType
