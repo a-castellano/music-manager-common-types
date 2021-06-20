@@ -16,15 +16,15 @@ const (
 )
 
 type Job struct {
-	ID             uuid.UUID
-	Finished       bool
-	Status         bool
-	Type           JobType
-	LastOrigin     string
-	RequiredOrigin string
-	Data           []byte
-	Result         []byte
-	Error          string
+	ID             uuid.UUID `json:"id"`
+	Finished       bool      `json:"finished"`
+	Status         bool      `json:"status"`
+	Type           JobType   `json:"type"`
+	LastOrigin     string    `json:"lastorigin"`
+	RequiredOrigin string    `json:"requiredorigin"`
+	Data           []byte    `json:"data"`
+	Result         []byte    `json:"result"`
+	Error          string    `json:"error"`
 }
 
 func EncodeJob(job Job) ([]byte, error) {
