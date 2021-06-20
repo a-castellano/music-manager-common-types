@@ -1,4 +1,4 @@
-image: daedalusproject/base_golang_1_15:202009121604
+image: registry.windmaker.net:5005/a-castellano/limani/base_golang_1_16:202106191213
 
 stages:
     - test
@@ -95,7 +95,7 @@ lint_code:
 
 pages:
   stage: deploy
-  image: daedalusproject/base:202001111126
+  image: registry.windmaker.net:5005/a-castellano/limani/base:202106191213
   script:
   - cp coverage.html public/
   artifacts:
