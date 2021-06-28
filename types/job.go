@@ -3,7 +3,6 @@ package types
 import (
 	"bytes"
 	"encoding/gob"
-	uuid "github.com/google/uuid"
 )
 
 type JobType int
@@ -16,15 +15,15 @@ const (
 )
 
 type Job struct {
-	ID             uuid.UUID `json:"id"`
-	Finished       bool      `json:"finished"`
-	Status         bool      `json:"status"`
-	Type           JobType   `json:"type"`
-	LastOrigin     string    `json:"lastorigin"`
-	RequiredOrigin string    `json:"requiredorigin"`
-	Data           []byte    `json:"data"`
-	Result         []byte    `json:"result"`
-	Error          string    `json:"error"`
+	ID             string  `json:"id"`
+	Finished       bool    `json:"finished"`
+	Status         bool    `json:"status"`
+	Type           JobType `json:"type"`
+	LastOrigin     string  `json:"lastorigin"`
+	RequiredOrigin string  `json:"requiredorigin"`
+	Data           []byte  `json:"data"`
+	Result         []byte  `json:"result"`
+	Error          string  `json:"error"`
 }
 
 func EncodeJob(job Job) ([]byte, error) {
