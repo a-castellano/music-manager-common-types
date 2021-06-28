@@ -1,19 +1,18 @@
 package types
 
 import (
-	uuid "github.com/google/uuid"
 	"testing"
 )
 
 func TestEncodeAndDecodeJobs(t *testing.T) {
 
 	var job Job
-	job.ID = uuid.New()
+	job.ID = "asdasd1221"
 	job.Type = RecordInfoRetrieval
 	test, _ := EncodeJob(job)
 	result, _ := DecodeJob(test)
 
-	if result.ID.String() != job.ID.String() {
+	if result.ID != job.ID {
 		t.Errorf(`Encode failed.`)
 	}
 
